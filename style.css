@@ -1,134 +1,153 @@
-@import url('https://fonts.googleapis.com/css2?family=Nova+Square&family=Poppins:wght@400;500;600;700&display=swap');
-
 :root {
-    background-color: rgb(29,26,26);
+  --green: #22c55e;
+  --red: #ef4444;
+  --white: #e2e8f0;
+  --white-2: #94a3b8;
+  --bg: #0f172a;
+  --bg-2: #1e293b;
+  --outline: #475569;
 }
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-size: 100%;
-    font-family: 'Nova Square', cursive;
+  margin: 0;
+  padding: 0;
+  font-family: 'consolas';
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--white-2);
+  line-height: calc(1em + 0.5rem);
+  /* outline: 1px solid red; */
+}
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  background-color: var(--bg);
+  display: grid;
+  place-items: center;
+}
+button,
+input[type='button'] {
+  background-color: transparent;
+  border: none;
+  display: block;
+  cursor: pointer;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 
-h1 {
-    font-size: 5.4rem;
-    color: #fff;
-    margin-bottom: 5rem;
+#input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  opacity: 0;
 }
-
-h2 {
-    font-size: 4.2rem;
-    margin-bottom: 4rem;
-}
-
 .container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 2rem;
+  padding: 3rem;
+  border: 0.1rem solid var(--outline);
+  position: relative;
 }
-
-.flex-column {
-    display: flex;
-    flex-direction: column;
+.container h1 {
+  text-align: center;
+  font-weight: 700;
 }
-
-.flex-center {
-    justify-content: center;
-    align-items: center;
+.boxes-wrapper {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-inline: auto;
+  width: min-content;
 }
-
-.justify-center {
-    justify-content: center;
+.boxes-wrapper div {
+  background-color: var(--bg-2);
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 4.6rem;
 }
-
-.text-center {
-    text-align: center;
+.boxes-wrapper div p {
+  color: var(--green);
+  font-weight: 700;
+  font-size: 2.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-
-.hidden {
-    display: none;
+.message-wrapper {
+  margin-inline: auto;
+  margin-top: 5rem;
 }
-
-.btn {
-    font-size: 2.4rem;
-    padding: 2rem 0;
-    width: 30rem;
-    text-align: center;
-    margin-bottom: 1rem;
-    text-decoration: none;
-    color: rgb(28, 26, 26);
-    background: linear-gradient(90deg, rgb(18, 92, 255) 0%, rgb(0, 102, 255) 100%);
-    border-radius: 4px;
+.message-wrapper p {
+  text-align: center;
 }
-
-.btn:hover {
-    cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(8, 114, 244, 0.6);
-    transition: transform 150ms;
-    transform: scale(1.03);
+.input-display {
+  font-size: 4.8rem;
+  font-weight: 700;
+  color: var(--white);
 }
-
-.btn[disabled]:hover {
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
+.message {
+  font-weight: 700;
+  color: var(--red);
 }
-
-#highscores-btn {
-    background: linear-gradient(90deg, rgb(255, 247, 9) 0%, rgb(240, 221, 6) 100%);
+.hint {
+  margin-top: 5rem;
+  max-width: 30ch;
 }
-
-#highscores-btn:hover {
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(255,255,0,0,5);
+.wrong-letters-wrapper {
+  background-color: var(--bg-2);
+  padding: 1rem;
+  margin-top: 2rem;
 }
-
-/* End Paege CSS */
-.end-form-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 30rem;
+.reset-button {
+  margin-top: 2rem;
+  width: 100%;
+  padding-block: 1rem;
+  font-weight: 700;
+  border: 0.1rem solid var(--outline);
 }
-
-input {
-    margin-bottom: 1rem;
-    width: 20rem;
-    padding: 1.5rem;
-    font-size: 1.8rem;
-    border: none;
-    box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+.reset-button:hover {
+  background-color: var(--outline);
+  color: var(--white);
 }
-
-input::placeholder {
-    color: aaa;
+.reset-button:active {
+  transform: scale(0.98);
 }
-
-#username {
-    margin-bottom: 3rem;
-    width: 100%;
-    outline: none;
+.reset-button:focus {
+  background-color: var(--outline);
+  color: var(--white);
 }
-
-#end-text {
-    font-size: 2.4rem;
-    color: #fff;
-    text-align: center;
+.display {
+  display: block;
 }
-
-#saveScoreBtn {
-    border: none;
-}
-
-.fa-home {
-    margin-left: 1rem;
-    font-size: 2rem;
-    color: rgb(28, 26,26);
+:focus {
+  outline: none;
 }
